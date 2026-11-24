@@ -100,8 +100,11 @@ and the `ccgs_init`, `ccgs_state`, `ccgs_role`, `ccgs_doc` tools.
 plugin_manager action=install_bundle target="github:y0n9/dsh-ccgs-studio"
 ```
 
-This relies on pnpm being able to fetch from GitHub; configure a proxy if your network
-needs one, or use path A.
+This relies on pnpm being able to fetch from GitHub — tested: `pnpm add
+github:y0n9/dsh-ccgs-studio` installs `dsh-ccgs-studio 1.0.0` with `skills/`, `studio/`,
+`templates/`, `locale/`, `docs/`, `index.js`, `cordis.patch.yml` and `icon.svg` present
+(the `files` list in `package.json`); DSH's `install_bundle` hands the same spec to the
+profile's pnpm. Configure a proxy if your network needs one, or use path A.
 
 **Check the install**
 

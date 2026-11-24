@@ -8,6 +8,7 @@
 - 上游版本：`abc0de7`（framework `1.3.0`）
 - 验证环境：DSH `0.2.2-rc.5` · desktop profile · Windows 11
 - 自检：`node test/bundle.test.mjs` → 7/7 通过
+- 安装实测：本地目录安装在该 profile 上端到端跑通（78 个技能进入技能目录、4 个工具实时可调）；`github:` 直装已验证 pnpm 能解析并装出 1.0.0（见[安装](#安装)）
 
 ---
 
@@ -160,7 +161,7 @@ plugin_manager action=install_bundle target="<绝对路径>/dsh-ccgs-studio"
 plugin_manager action=install_bundle target="github:y0n9/dsh-ccgs-studio"
 ```
 
-参数顺序与路径安装相同。这条路径依赖 pnpm 能从 GitHub 拉包（本仓库的 `package.json` 已声明 `files`、`exports`、`engines`，`pnpm add github:y0n9/dsh-ccgs-studio` 可正常解析）；若你的网络需要代理，请先配好 pnpm 的代理，或改用方式 A。
+参数顺序与路径安装相同。这条路径依赖 pnpm 能从 GitHub 拉包——已实测：`pnpm add github:y0n9/dsh-ccgs-studio` 在 pnpm 10.15.1 上装出 `dsh-ccgs-studio 1.0.0`，`skills/`、`studio/`、`templates/`、`locale/`、`docs/` 与 `index.js`、`cordis.patch.yml`、`icon.svg` 都在（`package.json` 的 `files` 已声明），DSH 的 `install_bundle` 就是把这个 spec 交给 profile 的 pnpm。若你的网络需要代理，请先配好 pnpm 的代理，或改用方式 A。
 
 ### 安装后自检
 
