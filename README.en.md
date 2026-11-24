@@ -6,10 +6,7 @@ Installing it gives you **78 workflow skills**, **49 role briefs**, the studio c
 (engine notes, genre chipsets, rules, docs) and four `ccgs_*` tools that read project
 state, scaffold a project, and search the corpus. No Claude Code required.
 
-- License: MIT (upstream MIT, packaging MIT)
-- Upstream: commit `abc0de7`, framework `1.3.0`
 - Verified on DSH `0.2.2-rc.5`, desktop profile, Windows 11
-- Self-test: `node test/bundle.test.mjs` → 7/7
 
 Chinese documentation: [README.md](./README.md)
 
@@ -39,14 +36,14 @@ Its value is process discipline rather than one-shot generation.
 It originally ran only in Claude Code (subagents, `AskUserQuestion`, hooks, slash
 commands, POSIX helper scripts). This bundle ports it:
 
-| Capability | In DSH |
-| --- | --- |
-| Workflow skills | registered through the `skills` provider; call them as `/start`, `/gate-check`, … |
-| Role briefs | `ccgs_role` returns the upstream brief to hand to `subagent` |
-| Slash-command dispatch | skills are the entry points, same names as upstream |
+| Capability             | In DSH                                                                                           |
+| ---------------------- | ------------------------------------------------------------------------------------------------ |
+| Workflow skills        | registered through the `skills` provider; call them as `/start`, `/gate-check`, …                |
+| Role briefs            | `ccgs_role` returns the upstream brief to hand to `subagent`                                     |
+| Slash-command dispatch | skills are the entry points, same names as upstream                                              |
 | State and gate scripts | `ccgs_state` reads `project.yaml`, `production/stage.txt` and artifacts directly; no bash needed |
-| Scaffolding | `ccgs_init` writes `.claude/`, `project.yaml`, `AGENTS.md` and the directory skeleton |
-| Corpus search | `ccgs_doc` lists, reads and searches the 376 shipped files |
+| Scaffolding            | `ccgs_init` writes `.claude/`, `project.yaml`, `AGENTS.md` and the directory skeleton            |
+| Corpus search          | `ccgs_doc` lists, reads and searches the 376 shipped files                                       |
 
 Skill bodies are upstream text, verbatim apart from tool-name adaptation.
 
@@ -137,12 +134,12 @@ Start every new session with `ccgs_state` or by reading
 
 ## Tools
 
-| Tool | Parameters | Returns |
-| --- | --- | --- |
-| `ccgs_state` | `path?`, `limit?` (40, 5–200) | `{root, projectYaml, stage:{value,source,legacyMirror}, engine, files, dirs, notes}` — read-only |
-| `ccgs_init` | `path?`, `overwrite?` (false) | `{root, copied, skipped, written, existing, next}` — idempotent |
-| `ccgs_role` | `list?`, `role?`, `maxChars?` (24000) | role list, or one brief with its upstream model hint |
-| `ccgs_doc` | `list?`, `folder?`, `path?`, `query?`, `maxChars?` (32000) | folder counts, one document, or `{path,line,text}` search hits |
+| Tool         | Parameters                                                 | Returns                                                                                          |
+| ------------ | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `ccgs_state` | `path?`, `limit?` (40, 5–200)                              | `{root, projectYaml, stage:{value,source,legacyMirror}, engine, files, dirs, notes}` — read-only |
+| `ccgs_init`  | `path?`, `overwrite?` (false)                              | `{root, copied, skipped, written, existing, next}` — idempotent                                  |
+| `ccgs_role`  | `list?`, `role?`, `maxChars?` (24000)                      | role list, or one brief with its upstream model hint                                             |
+| `ccgs_doc`   | `list?`, `folder?`, `path?`, `query?`, `maxChars?` (32000) | folder counts, one document, or `{path,line,text}` search hits                                   |
 
 ## Project layout and `project.yaml`
 
@@ -165,14 +162,14 @@ expands into them: `modes.review_mode`, `modes.workflow`, `docs.density`, `qa.le
 
 ## Conversion notes
 
-| Upstream | Here |
-| --- | --- |
+| Upstream                                                                | Here                                                                          |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | `argument-hint`, `user-invocable`, `allowed-tools`, `model` frontmatter | dropped (kept in `skills/manifest.json` as `upstreamTools` / `upstreamModel`) |
-| `AskUserQuestion` | `ask_user_question` |
-| `Skill(<name>)` | the `skill` tool |
-| `subagent_type: <role>` | `ccgs_role` then `subagent` |
-| Read / Write / Edit / Glob / Grep / Bash | host file, search and shell tools |
-| `.claude/scripts/*.sh`, `.claude/hooks/*.sh` | usable with POSIX bash; otherwise `ccgs_state` + host file tools |
+| `AskUserQuestion`                                                       | `ask_user_question`                                                           |
+| `Skill(<name>)`                                                         | the `skill` tool                                                              |
+| `subagent_type: <role>`                                                 | `ccgs_role` then `subagent`                                                   |
+| Read / Write / Edit / Glob / Grep / Bash                                | host file, search and shell tools                                             |
+| `.claude/scripts/*.sh`, `.claude/hooks/*.sh`                            | usable with POSIX bash; otherwise `ccgs_state` + host file tools              |
 
 Not ported: Claude Code hooks, `.claude/settings.json`, statusline, slash-command
 dispatch. `CLAUDE.md` is kept for reference; `AGENTS.md` is the DSH entry point.

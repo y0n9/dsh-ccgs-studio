@@ -4,11 +4,10 @@
 
 装好之后，你在 DSH 里就有：**78 个工作流技能**、**49 份岗位角色简报**、一套工作室语料（引擎笔记、品类芯片、规则、文档），以及 4 个 `ccgs_*` 工具负责读取项目状态、搭建脚手架、检索语料。你不需要 Claude Code。
 
-- 许可：MIT（上游 MIT，打包部分 MIT）
-- 上游版本：`abc0de7`（framework `1.3.0`）
 - 验证环境：DSH `0.2.2-rc.5` · desktop profile · Windows 11
-- 自检：`node test/bundle.test.mjs` → 7/7 通过
 - 安装实测：本地目录安装在该 profile 上端到端跑通（78 个技能进入技能目录、4 个工具实时可调）；`github:` 直装已验证 pnpm 能解析并装出 1.0.0（见[安装](#安装)）
+
+  English: [README.en.md](./README.en.md)
 
 ---
 
@@ -62,14 +61,14 @@ dsh-ccgs-studio/
 
 原来它只能跑在 Claude Code 里（依赖 Claude Code 的 subagent、`AskUserQuestion`、hook、slash command、以及 `.claude/scripts/*.sh`）。本仓库把它搬到了 DSH：
 
-| 能力 | 在 DSH 上的实现 |
-| --- | --- |
-| 工作流技能 | `skills` 服务的 provider，78 个技能进入技能目录，可 `/start`、`/gate-check` 这样直接调用 |
-| 岗位角色 | 49 份简报通过 `ccgs_role` 读取，交给 `subagent` 使用，保留"分工"语义 |
-| slash command 派发 | 技能本身即入口，名字与上游命令一致 |
-| 状态与门禁脚本 | `ccgs_state` 直接读 `project.yaml` / `production/stage.txt` / 制品目录，不依赖 bash |
-| 脚手架 | `ccgs_init` 一次写入 `.claude/`、`project.yaml`、`AGENTS.md` 与骨架目录 |
-| 语料检索 | `ccgs_doc` 按路径读、按词搜（376 个文件） |
+| 能力               | 在 DSH 上的实现                                                               |
+| ---------------- | ------------------------------------------------------------------------ |
+| 工作流技能            | `skills` 服务的 provider，78 个技能进入技能目录，可 `/start`、`/gate-check` 这样直接调用       |
+| 岗位角色             | 49 份简报通过 `ccgs_role` 读取，交给 `subagent` 使用，保留"分工"语义                        |
+| slash command 派发 | 技能本身即入口，名字与上游命令一致                                                        |
+| 状态与门禁脚本          | `ccgs_state` 直接读 `project.yaml` / `production/stage.txt` / 制品目录，不依赖 bash |
+| 脚手架              | `ccgs_init` 一次写入 `.claude/`、`project.yaml`、`AGENTS.md` 与骨架目录             |
+| 语料检索             | `ccgs_doc` 按路径读、按词搜（376 个文件）                                             |
 
 上游技能正文**逐字保留**（只做工具名替换），所以文档、术语、门禁判据都与上游一致。
 
@@ -77,17 +76,17 @@ dsh-ccgs-studio/
 
 ### 78 个技能（按用途分组）
 
-| 分组 | 数量 | 技能 |
-| --- | --- | --- |
-| 入门与导航 | 10 | `start` `next-step` `help` `onboard` `adopt` `project-stage-detect` `project-settings` `settings` `gate-check` `setup-engine` |
-| 概念与设计 | 12 | `brainstorm` `quick-design` `design-system` `design-review` `map-systems` `review-all-gdds` `consistency-check` `propagate-design-change` `reverse-document` `cut` `scope-check` `estimate` |
-| 美术、UX 与音频 | 7 | `art-bible` `asset-spec` `asset-audit` `ux-design` `ux-review` `team-audio` `team-ui` |
-| 架构与代码质量 | 7 | `create-architecture` `architecture-decision` `architecture-review` `create-control-manifest` `code-review` `tech-debt` `security-audit` |
-| 计划与实现 | 9 | `create-epics` `create-stories` `story-readiness` `dev-story` `story-done` `sprint-plan` `sprint-status` `vertical-slice` `prototype` |
-| 测试与度量 | 14 | `qa-plan` `smoke-check` `soak-test` `test-setup` `test-helpers` `test-evidence-review` `test-flakiness` `regression-suite` `bug-report` `bug-triage` `playtest-report` `perf-profile` `balance-check` `content-audit` |
-| 团队流水线 | 7 | `team-combat` `team-level` `team-narrative` `team-polish` `team-qa` `team-release` `team-live-ops` |
-| 发布与运营 | 10 | `release-checklist` `launch-checklist` `day-one-patch` `hotfix` `patch-notes` `write-changelog` `changelog` `localize` `retrospective` `milestone-review` |
-| 元技能 | 2 | `skill-test` `skill-improve` |
+| 分组        | 数量  | 技能                                                                                                                                                                                                                    |
+| --------- | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 入门与导航     | 10  | `start` `next-step` `help` `onboard` `adopt` `project-stage-detect` `project-settings` `settings` `gate-check` `setup-engine`                                                                                         |
+| 概念与设计     | 12  | `brainstorm` `quick-design` `design-system` `design-review` `map-systems` `review-all-gdds` `consistency-check` `propagate-design-change` `reverse-document` `cut` `scope-check` `estimate`                           |
+| 美术、UX 与音频 | 7   | `art-bible` `asset-spec` `asset-audit` `ux-design` `ux-review` `team-audio` `team-ui`                                                                                                                                 |
+| 架构与代码质量   | 7   | `create-architecture` `architecture-decision` `architecture-review` `create-control-manifest` `code-review` `tech-debt` `security-audit`                                                                              |
+| 计划与实现     | 9   | `create-epics` `create-stories` `story-readiness` `dev-story` `story-done` `sprint-plan` `sprint-status` `vertical-slice` `prototype`                                                                                 |
+| 测试与度量     | 14  | `qa-plan` `smoke-check` `soak-test` `test-setup` `test-helpers` `test-evidence-review` `test-flakiness` `regression-suite` `bug-report` `bug-triage` `playtest-report` `perf-profile` `balance-check` `content-audit` |
+| 团队流水线     | 7   | `team-combat` `team-level` `team-narrative` `team-polish` `team-qa` `team-release` `team-live-ops`                                                                                                                    |
+| 发布与运营     | 10  | `release-checklist` `launch-checklist` `day-one-patch` `hotfix` `patch-notes` `write-changelog` `changelog` `localize` `retrospective` `milestone-review`                                                             |
+| 元技能       | 2   | `skill-test` `skill-improve`                                                                                                                                                                                          |
 
 > 上游 README 写的是"75 个工作流技能"；仓库里实际有 78 个目录，多出的 3 个是兼容别名（`help` → `next-step`、`settings` → `project-settings`、`changelog` → `write-changelog`）。本包全部收录。
 
@@ -99,17 +98,17 @@ accessibility-specialist、ai-programmer、analytics-engineer、art-director、a
 
 ### 工作室语料（`studio/`，376 个文件）
 
-| 目录 | 文件数 | 用途 |
-| --- | --- | --- |
-| `studio/docs/` | 134 | 协作规则、目录结构、编码规范、效果映射表、导演门禁、自动化模式、配置解析等 |
-| `studio/genres/` | 74 | 品类芯片与混搭建议 |
-| `studio/scripts/` | 54 | 上游状态/门禁脚本（需要 POSIX bash，见[常见问题](#常见问题)） |
-| `studio/agents/` | 49 | 角色简报原文 + `index.json`（生成的花名册） |
-| `studio/engines/` | 28 | 引擎适配笔记 |
-| `studio/hooks/` | 18 | 上游 hook 脚本与辅助库（参考用） |
-| `studio/rules/` | 14 | 提交、评审、记忆等硬规则 |
-| `studio/repo-docs/` | 4 | `WORKFLOW-GUIDE.md`、`COLLABORATIVE-DESIGN-PRINCIPLE.md`、`tr-registry.yaml`、`VERSION.md` |
-| `studio/CLAUDE.md` `studio/project.yaml` | 2 | 上游主配置与 `project.yaml` 模板 |
+| 目录                                       | 文件数 | 用途                                                                                      |
+| ---------------------------------------- | --- | --------------------------------------------------------------------------------------- |
+| `studio/docs/`                           | 134 | 协作规则、目录结构、编码规范、效果映射表、导演门禁、自动化模式、配置解析等                                                   |
+| `studio/genres/`                         | 74  | 品类芯片与混搭建议                                                                               |
+| `studio/scripts/`                        | 54  | 上游状态/门禁脚本（需要 POSIX bash，见[常见问题](#常见问题)）                                                 |
+| `studio/agents/`                         | 49  | 角色简报原文 + `index.json`（生成的花名册）                                                           |
+| `studio/engines/`                        | 28  | 引擎适配笔记                                                                                  |
+| `studio/hooks/`                          | 18  | 上游 hook 脚本与辅助库（参考用）                                                                     |
+| `studio/rules/`                          | 14  | 提交、评审、记忆等硬规则                                                                            |
+| `studio/repo-docs/`                      | 4   | `WORKFLOW-GUIDE.md`、`COLLABORATIVE-DESIGN-PRINCIPLE.md`、`tr-registry.yaml`、`VERSION.md` |
+| `studio/CLAUDE.md` `studio/project.yaml` | 2   | 上游主配置与 `project.yaml` 模板                                                                |
 
 ### 其它
 
@@ -150,7 +149,7 @@ plugin_manager action=install_bundle target="<绝对路径>/dsh-ccgs-studio"
 - 工具列表出现 `ccgs_init`、`ccgs_state`、`ccgs_role`、`ccgs_doc`。
 
 > **不要删除克隆下来的目录。** 本地目录安装是 pnpm 的 `link:` 依赖，profile 里存的是指向它的链接；删掉目录，插件就失效。想换位置，先移动目录再重新安装一次。
->
+> 
 > 如果安装后没有立刻出现：重新加载页面；仍然没有就重启 DSH（替换已安装的同名包需要重启才生效）。
 
 ### 方式 B：从 Git URL 安装
@@ -178,27 +177,27 @@ ccgs_state                    → 报告当前目录有没有 project.yaml
 以一个全新的游戏项目为例（`my-game/` 为空目录）：
 
 1. **搭脚手架**
-
+   
    ```text
    ccgs_init path="C:/work/my-game"
    ```
-
+   
    得到 `.claude/`（49 份简报 + 语料 + 脚本）、`project.yaml`、`AGENTS.md`、`production/session-state/active.md`，以及 `design/{gdd,narrative,levels,balance}`、`docs/engine-reference`、`tests/{unit,integration}`、`tools`、`prototypes`、`production/{session-state,session-logs}`、`assets`。
 
 2. **首次进场**：`/start`
-
+   
    问你目标（jam / learn / hobby / portfolio / sell / early_access / publisher / mobile）、引擎（默认 web，可选 Godot 4 / Unity / Unreal 5）、规模与严谨档位；写入 `project.yaml` 的 `modes.rigor` / `modes.automation`，产出 `design/gdd/game-concept.md` 与设计支柱、视觉锚点。
 
 3. **想先玩到东西**：`/prototype`
-
+   
    几轮问答收敛成一页 brief，然后产出一个可直接在浏览器打开的可玩原型（或按所选引擎的纸面/引擎原型），给出 proceed / pivot / kill 判断。
 
 4. **往下推**：`/next-step`
-
+   
    它读 `ccgs_state` 看到的东西（阶段、已有制品、缺口），只给你**下一个**该做的动作。
 
 5. **过门禁**：`/gate-check`
-
+   
    PASS / CONCERNS / NOT ASSESSED / FAIL，列出阻塞项与缺失制品；PASS（或你明确接受 CONCERNS 的风险）才会推进阶段。
 
 之后按需：`/map-systems` → `/design-system <system>` → `/design-review` → `/create-architecture` → `/architecture-decision` → `/create-epics` → `/create-stories` → `/dev-story` → `/qa-plan` → `/smoke-check` → `/release-checklist`；需要多人视角时用 `/team-combat`、`/team-level`、`/team-qa` 这类流水线技能。
@@ -211,41 +210,41 @@ ccgs_state                    → 报告当前目录有没有 project.yaml
 
 只读观察，不做判断，不写文件。
 
-| 参数 | 说明 |
-| --- | --- |
-| `path` | 项目根目录，默认当前工作目录 |
+| 参数      | 说明                       |
+| ------- | ------------------------ |
+| `path`  | 项目根目录，默认当前工作目录           |
 | `limit` | 每个目录列出的条目上限（默认 40，5–200） |
 
 返回 `{ root, projectYaml: { path, exists, values }, stage: { value, source, legacyMirror }, engine, files, dirs, notes }`。`stage.source` 是 `project.yaml:project.stage` 或 `production/stage.txt`；`notes` 会指出"阶段与制品不一致""没有 project.yaml，先跑 ccgs_init"之类的事实。
 
 ### `ccgs_init`
 
-| 参数 | 说明 |
-| --- | --- |
-| `path` | 项目根目录，默认当前工作目录 |
+| 参数          | 说明                                           |
+| ----------- | -------------------------------------------- |
+| `path`      | 项目根目录，默认当前工作目录                               |
 | `overwrite` | 是否覆盖已存在文件（默认 `false`，已存在则跳过并在 `skipped` 里报告） |
 
 返回 `{ root, copied, skipped, written, existing, next }`。可重复执行——第二次只会补缺，不会踩掉你的改动。
 
 ### `ccgs_role`
 
-| 参数 | 说明 |
-| --- | --- |
-| `list` | 列出 49 个岗位（名称、一句话摘要、model 提示） |
-| `role` | 读某一份简报，如 `creative-director`、`qa-lead`、`unity-specialist` |
-| `maxChars` | 读取上限（默认 24000，2000–60000） |
+| 参数         | 说明                                                        |
+| ---------- | --------------------------------------------------------- |
+| `list`     | 列出 49 个岗位（名称、一句话摘要、model 提示）                              |
+| `role`     | 读某一份简报，如 `creative-director`、`qa-lead`、`unity-specialist` |
+| `maxChars` | 读取上限（默认 24000，2000–60000）                                 |
 
 配合 DSH 的 `subagent` 使用：先 `ccgs_role role="qa-lead"` 取简报，再把简报作为子 agent 的职责说明——这样保留上游"岗位分工"的语义。
 
 ### `ccgs_doc`
 
-| 参数 | 说明 |
-| --- | --- |
-| `list` | 列出语料目录与文件数 |
-| `folder` | 配合 `list`，只看某个子目录，如 `genres/chipsets` |
-| `path` | 读一份文档，studio 相对路径，如 `docs/config-resolution.md` |
-| `query` | 按词检索（大小写不敏感，多词 AND），返回 `{path,line,text}` 命中 |
-| `maxChars` | 读取上限（默认 32000，2000–80000） |
+| 参数         | 说明                                              |
+| ---------- | ----------------------------------------------- |
+| `list`     | 列出语料目录与文件数                                      |
+| `folder`   | 配合 `list`，只看某个子目录，如 `genres/chipsets`           |
+| `path`     | 读一份文档，studio 相对路径，如 `docs/config-resolution.md` |
+| `query`    | 按词检索（大小写不敏感，多词 AND），返回 `{path,line,text}` 命中    |
+| `maxChars` | 读取上限（默认 32000，2000–80000）                       |
 
 技能正文里写"读 `.claude/docs/xxx.md`"的地方，用 `ccgs_doc path="docs/xxx.md"` 即可；不必猜路径。
 
@@ -276,15 +275,15 @@ my-game/
 
  `Concept` → `Systems Design` → `Technical Setup` → `Pre-Production` → `Production` → `Polish` → `Release`
 
-| 阶段 | 门禁要求（`/gate-check` 判据） |
-| --- | --- |
-| Concept | 一页概念、设计支柱、视觉锚点 |
-| Systems Design | `systems-index.md`、全部 MVP GDD 通过评审、跨 GDD 一致性 |
+| 阶段              | 门禁要求（`/gate-check` 判据）                                                      |
+| --------------- | --------------------------------------------------------------------------- |
+| Concept         | 一页概念、设计支柱、视觉锚点                                                              |
+| Systems Design  | `systems-index.md`、全部 MVP GDD 通过评审、跨 GDD 一致性                                |
 | Technical Setup | 引擎配置完成、art-bible 前 4 节（`standard` 档及以上）、≥3 份 ADR、架构文档、追溯索引、测试框架、可访问性与交互模式文档 |
-| Pre-Production | epics、首个 sprint 计划、UX 规范、control manifest（建议加 vertical slice） |
-| Production | 核心机制可玩、主路径贯通、smoke check 通过、QA 签核 |
-| Polish | 功能与内容齐备、本地化、安全审计、无开放 S1–S3 bug |
-| Release | 发布清单与上线检查全部通过 |
+| Pre-Production  | epics、首个 sprint 计划、UX 规范、control manifest（建议加 vertical slice）               |
+| Production      | 核心机制可玩、主路径贯通、smoke check 通过、QA 签核                                           |
+| Polish          | 功能与内容齐备、本地化、安全审计、无开放 S1–S3 bug                                              |
+| Release         | 发布清单与上线检查全部通过                                                               |
 
 阶段只由 `/start`（进场）与 `/gate-check`（PASS，或你明确接受 CONCERNS 的风险）写入；`/gate-check` 同时双写 `project.yaml` 与旧位置 `production/stage.txt`。**不要手动改**，除非是在纠正一次错误的自动探测。
 
@@ -315,28 +314,28 @@ modes:
 
 ## 移植说明
 
-| 上游写法 | DSH 上怎么写 |
-| --- | --- |
+| 上游写法                                                                       | DSH 上怎么写                                                                                                |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | frontmatter `argument-hint` / `user-invocable` / `allowed-tools` / `model` | 丢弃（DSH 技能只认 `name` + `description`）；上游值保留在 `skills/manifest.json` 的 `upstreamTools` / `upstreamModel` 里 |
-| `AskUserQuestion` | `ask_user_question` |
-| `Skill(<name>)` | `skill` 工具，参数为该技能名 |
-| `subagent_type: <role>` | `ccgs_role({role})` 取简报 → `subagent` 派发 |
-| Read / Write / Edit / Glob / Grep / Bash | 宿主自带的文件、搜索、shell 工具 |
-| `.claude/scripts/*.sh`、`.claude/hooks/*.sh` | 有 bash 就能直接用；没有就用 `ccgs_state` 读、用文件工具写 |
+| `AskUserQuestion`                                                          | `ask_user_question`                                                                                     |
+| `Skill(<name>)`                                                            | `skill` 工具，参数为该技能名                                                                                      |
+| `subagent_type: <role>`                                                    | `ccgs_role({role})` 取简报 → `subagent` 派发                                                                 |
+| Read / Write / Edit / Glob / Grep / Bash                                   | 宿主自带的文件、搜索、shell 工具                                                                                     |
+| `.claude/scripts/*.sh`、`.claude/hooks/*.sh`                                | 有 bash 就能直接用；没有就用 `ccgs_state` 读、用文件工具写                                                                 |
 
 每个 `SKILL.md` 顶部有 4 行 DSH 适配说明，正文是上游原文。技能目录里还有一个 `skills/manifest.json`（名称、描述、文件清单、上游 model/tools），`skills` provider 就是按它注册的。
 
 ## 与 Claude Code 版的差异
 
-| | Claude Code 版 | 本包（DSH） |
-| --- | --- | --- |
-| 技能入口 | slash command | 同名技能（`/start`、`/gate-check`……） |
-| 49 个岗位 | 原生 subagent 类型 | `ccgs_role` 简报 + `subagent` |
-| 阶段/状态脚本 | `.claude/scripts/*.sh` + bash | `ccgs_state`（无需 bash） |
-| 脚手架 | `/start` 内联建目录 | `ccgs_init` 显式、可重入 |
-| hooks、`.claude/settings.json`、statusline | 生效 | **未移植**（没有对应的 DSH 钩子链） |
-| slash command 派发表 | `.claude/commands` | 不适用（技能本身即入口） |
-| 项目入口文件 | `CLAUDE.md` | `AGENTS.md`（`CLAUDE.md` 同时保留，供参考） |
+|                                          | Claude Code 版                 | 本包（DSH）                           |
+| ---------------------------------------- | ----------------------------- | --------------------------------- |
+| 技能入口                                     | slash command                 | 同名技能（`/start`、`/gate-check`……）    |
+| 49 个岗位                                   | 原生 subagent 类型                | `ccgs_role` 简报 + `subagent`       |
+| 阶段/状态脚本                                  | `.claude/scripts/*.sh` + bash | `ccgs_state`（无需 bash）             |
+| 脚手架                                      | `/start` 内联建目录                | `ccgs_init` 显式、可重入                |
+| hooks、`.claude/settings.json`、statusline | 生效                            | **未移植**（没有对应的 DSH 钩子链）            |
+| slash command 派发表                        | `.claude/commands`            | 不适用（技能本身即入口）                      |
+| 项目入口文件                                   | `CLAUDE.md`                   | `AGENTS.md`（`CLAUDE.md` 同时保留，供参考） |
 
 ## 常见问题
 
@@ -383,5 +382,3 @@ node scripts/build-from-upstream.mjs --repo <上游 checkout> --commit <sha>
 "Claude Code" 是 Anthropic 的商标，"DeepSeek Harness" 属于 DeepSeek。本项目是独立的移植工作，与上述双方均无隶属或背书关系。
 
 ---
-
-English: [README.en.md](./README.en.md)
