@@ -1,0 +1,397 @@
+{
+  "count": 49,
+  "agents": [
+    {
+      "name": "accessibility-specialist",
+      "description": "Accessibility standards and assistive features — remapping, text scaling, colorblind modes, screen reader support.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "accessibility-specialist.md",
+      "bytes": 8856
+    },
+    {
+      "name": "ai-programmer",
+      "description": "Implements game AI — behavior trees, state machines, pathfinding, perception, decision-making, NPC and enemy behavior, AI debugging.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "ai-programmer.md",
+      "bytes": 5436
+    },
+    {
+      "name": "analytics-engineer",
+      "description": "Telemetry and analytics — event tracking, player behavior, A/B test frameworks, dashboard specification, data pipelines.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash, WebSearch",
+      "file": "analytics-engineer.md",
+      "bytes": 5272
+    },
+    {
+      "name": "art-director",
+      "description": "Owns visual identity — style guides, art bible, asset standards, color palettes, UI visual direction.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, WebSearch",
+      "file": "art-director.md",
+      "bytes": 7596
+    },
+    {
+      "name": "audio-director",
+      "description": "Owns sonic identity — music direction, sound palette, audio implementation strategy, mix balance.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, WebSearch",
+      "file": "audio-director.md",
+      "bytes": 5713
+    },
+    {
+      "name": "community-manager",
+      "description": "Player-facing communication — patch notes, social posts, community updates, feedback collection, player bug triage, crisis communication.",
+      "model": "sonnet",
+      "tools": "Read, Glob, Grep, Write, Edit",
+      "file": "community-manager.md",
+      "bytes": 8628
+    },
+    {
+      "name": "creative-director",
+      "description": "Highest creative authority — vision, tone, aesthetic direction. Use when a decision affects game identity or department leads deadlock.",
+      "model": "opus",
+      "tools": "Read, Glob, Grep, Write, Edit, WebSearch",
+      "file": "creative-director.md",
+      "bytes": 18152
+    },
+    {
+      "name": "devops-engineer",
+      "description": "Build pipelines, CI/CD configuration, version control workflow, branching strategy, automated test pipelines, deployment infrastructure.",
+      "model": "sonnet",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "devops-engineer.md",
+      "bytes": 6155
+    },
+    {
+      "name": "economy-designer",
+      "description": "Resource economies — loot tables, sink/faucet analysis, progression curve calibration, economic balance.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit",
+      "file": "economy-designer.md",
+      "bytes": 7971
+    },
+    {
+      "name": "engine-programmer",
+      "description": "Core engine systems — rendering pipeline, physics, memory, resource loading, scene management, performance-critical framework code.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "engine-programmer.md",
+      "bytes": 6692
+    },
+    {
+      "name": "game-designer",
+      "description": "Mechanical and systems design — core loops, progression, combat, economy, player-facing rules. Mechanics-level questions.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, WebSearch",
+      "file": "game-designer.md",
+      "bytes": 13729
+    },
+    {
+      "name": "gameplay-programmer",
+      "description": "Implements designed mechanics as code — player systems, combat, interactive features, gameplay system code.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "gameplay-programmer.md",
+      "bytes": 8098
+    },
+    {
+      "name": "godot-csharp-specialist",
+      "description": "Godot 4 C# quality — .NET patterns, attribute-based exports, signal delegates, async patterns, type-safe node access.",
+      "model": "sonnet",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "godot-csharp-specialist.md",
+      "bytes": 18863
+    },
+    {
+      "name": "godot-gdextension-specialist",
+      "description": "Native code integration with Godot — GDExtension API, godot-cpp and godot-rust bindings, custom node types, the native boundary.",
+      "model": "sonnet",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "godot-gdextension-specialist.md",
+      "bytes": 16329
+    },
+    {
+      "name": "godot-gdscript-specialist",
+      "description": "GDScript code quality — static typing enforcement, signal architecture, coroutine patterns, GDScript idioms, typed and performant.",
+      "model": "sonnet",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "godot-gdscript-specialist.md",
+      "bytes": 14996
+    },
+    {
+      "name": "godot-shader-specialist",
+      "description": "Godot rendering customization — shading language, visual shaders, material setup, particle shaders, post-processing.",
+      "model": "sonnet",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "godot-shader-specialist.md",
+      "bytes": 13140
+    },
+    {
+      "name": "godot-specialist",
+      "description": "Authority on Godot-specific patterns and APIs — node/scene architecture, signals, resources; guides GDScript vs C# vs GDExtension.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash, Agent",
+      "file": "godot-specialist.md",
+      "bytes": 12348
+    },
+    {
+      "name": "lead-programmer",
+      "description": "Lead programmer — code-level architecture, coding standards, code review, API design, refactoring strategy, assigning work to specialist programmers.",
+      "model": "sonnet",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "lead-programmer.md",
+      "bytes": 6676
+    },
+    {
+      "name": "level-designer",
+      "description": "Spatial design for levels and areas — encounter layouts, pacing, difficulty, layout planning, environmental storytelling.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit",
+      "file": "level-designer.md",
+      "bytes": 6313
+    },
+    {
+      "name": "live-ops-designer",
+      "description": "Post-launch content — seasonal events, battle passes, content cadence, retention, engagement analytics. Keeps the game fresh.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit",
+      "file": "live-ops-designer.md",
+      "bytes": 10189
+    },
+    {
+      "name": "localization-lead",
+      "description": "Internationalization architecture — i18n system design, string extraction workflows, locale testing, locale-specific issues, translation pipeline.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "localization-lead.md",
+      "bytes": 9536
+    },
+    {
+      "name": "narrative-director",
+      "description": "Story architecture, world-building, character design, dialogue strategy. Narrative structure and direction rather than writing individual lines.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, WebSearch",
+      "file": "narrative-director.md",
+      "bytes": 7139
+    },
+    {
+      "name": "network-programmer",
+      "description": "Multiplayer networking — state replication, lag compensation, matchmaking, network protocol, netcode and bandwidth optimization.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "network-programmer.md",
+      "bytes": 6488
+    },
+    {
+      "name": "performance-analyst",
+      "description": "Performance analyst — profiling, bottlenecks, memory analysis, frame time investigation, recommends optimizations, tracks metrics over time.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "performance-analyst.md",
+      "bytes": 5340
+    },
+    {
+      "name": "producer",
+      "description": "Production concerns — sprint planning, milestone tracking, risk, scope, cross-department coordination when multiple departments must synchronize.",
+      "model": "opus",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash, WebSearch",
+      "file": "producer.md",
+      "bytes": 7877
+    },
+    {
+      "name": "prototyper",
+      "description": "Throwaway builds — concept prototypes after brainstorm to test an idea is fun before GDDs; vertical slices pre-production. Speed over standards.",
+      "model": "sonnet",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "prototyper.md",
+      "bytes": 14984
+    },
+    {
+      "name": "qa-lead",
+      "description": "Test strategy and process — test plan creation, bug severity assessment, regression planning, release quality gates, readiness evaluation.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "qa-lead.md",
+      "bytes": 8546
+    },
+    {
+      "name": "qa-tester",
+      "description": "Writes test cases, bug reports, and checklists — test case generation, regression checklist creation, execution documentation.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "qa-tester.md",
+      "bytes": 11763
+    },
+    {
+      "name": "release-manager",
+      "description": "Release pipeline — certification checklists, store submissions and page prep, platform requirements, version numbering, release-day coordination.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "release-manager.md",
+      "bytes": 8485
+    },
+    {
+      "name": "security-engineer",
+      "description": "Protects against cheating, exploits, breaches — anti-cheat measures, secure save data and network comms, player privacy compliance.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "security-engineer.md",
+      "bytes": 8865
+    },
+    {
+      "name": "sound-designer",
+      "description": "SFX specifications and spec sheets — audio event documentation, mixing parameters, sound category definitions.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit",
+      "file": "sound-designer.md",
+      "bytes": 4532
+    },
+    {
+      "name": "systems-designer",
+      "description": "Detailed subsystem mechanics — combat formulas, progression curves, crafting recipes, status effect interactions, mathematical modeling of a mechanic.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit",
+      "file": "systems-designer.md",
+      "bytes": 8166
+    },
+    {
+      "name": "technical-artist",
+      "description": "Technical artist bridging art and engineering — shaders, VFX, rendering optimization, art pipeline tools, art-to-engine issues.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "technical-artist.md",
+      "bytes": 6574
+    },
+    {
+      "name": "technical-director",
+      "description": "High-level technical decisions — engine architecture, technology choices, performance strategy, technical risk, cross-system conflicts.",
+      "model": "opus",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash, WebSearch",
+      "file": "technical-director.md",
+      "bytes": 8279
+    },
+    {
+      "name": "tools-programmer",
+      "description": "Internal dev tools — editor extensions, content authoring tools, debug utilities, pipeline automation, editor workflow.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "tools-programmer.md",
+      "bytes": 6284
+    },
+    {
+      "name": "ue-blueprint-specialist",
+      "description": "Blueprint architecture and Blueprint/C++ boundary — optimization, maintainable graphs. Prevents Blueprint spaghetti, enforces clean BP patterns.",
+      "model": "sonnet",
+      "tools": "Read, Glob, Grep, Write, Edit",
+      "file": "ue-blueprint-specialist.md",
+      "bytes": 10168
+    },
+    {
+      "name": "ue-gas-specialist",
+      "description": "Gameplay Ability System — abilities, gameplay effects, attribute sets, tags, ability tasks, prediction. Prevents common GAS anti-patterns.",
+      "model": "sonnet",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "ue-gas-specialist.md",
+      "bytes": 9694
+    },
+    {
+      "name": "ue-replication-specialist",
+      "description": "Unreal networking — property replication, RPCs, client prediction, relevancy, net serialization, bandwidth. Server-authoritative architecture.",
+      "model": "sonnet",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "ue-replication-specialist.md",
+      "bytes": 9463
+    },
+    {
+      "name": "ue-umg-specialist",
+      "description": "Unreal UI implementation — UMG widget hierarchy, data binding, CommonUI input routing, widget styling, UI optimization.",
+      "model": "sonnet",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "ue-umg-specialist.md",
+      "bytes": 9920
+    },
+    {
+      "name": "ui-programmer",
+      "description": "Implements user interface systems — menus, HUDs, inventory screens, dialogue boxes, UI framework code, screen flow.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "ui-programmer.md",
+      "bytes": 6568
+    },
+    {
+      "name": "unity-addressables-specialist",
+      "description": "Unity asset management — Addressable groups, loading/unloading, content catalogs, remote delivery, asset bundle optimization, fast load times.",
+      "model": "sonnet",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "unity-addressables-specialist.md",
+      "bytes": 11357
+    },
+    {
+      "name": "unity-dots-specialist",
+      "description": "Unity Data-Oriented Technology Stack — Entity Component System, Jobs, Burst compiler optimization, hybrid renderer, correct ECS patterns.",
+      "model": "sonnet",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "unity-dots-specialist.md",
+      "bytes": 10355
+    },
+    {
+      "name": "unity-shader-specialist",
+      "description": "Unity rendering — Shader Graph, custom HLSL, VFX Graph, render pipeline customization (URP/HDRP), post-processing within performance budgets.",
+      "model": "sonnet",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "unity-shader-specialist.md",
+      "bytes": 11151
+    },
+    {
+      "name": "unity-specialist",
+      "description": "Authority on Unity-specific patterns and APIs — guides MonoBehaviour vs DOTS/ECS, Unity subsystems including Addressables and Input System.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash, Agent",
+      "file": "unity-specialist.md",
+      "bytes": 12871
+    },
+    {
+      "name": "unity-ui-specialist",
+      "description": "Unity UI implementation — UI Toolkit (UXML/USS), UGUI Canvas, data binding, runtime UI performance, cross-platform adaptation.",
+      "model": "sonnet",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash",
+      "file": "unity-ui-specialist.md",
+      "bytes": 12129
+    },
+    {
+      "name": "unreal-specialist",
+      "description": "Authority on Unreal-specific patterns and APIs — guides Blueprint vs C++, UE subsystems (GAS, Enhanced Input, Niagara, etc.).",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, Bash, Agent",
+      "file": "unreal-specialist.md",
+      "bytes": 11978
+    },
+    {
+      "name": "ux-designer",
+      "description": "User experience flows, interaction design, information architecture — user flow mapping, interaction pattern design, onboarding, accessibility requirements.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit, WebSearch",
+      "file": "ux-designer.md",
+      "bytes": 5627
+    },
+    {
+      "name": "world-builder",
+      "description": "World builder for lore — factions, cultures, history, geography, ecology, world rules. Faction design, lore consistency checks.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit",
+      "file": "world-builder.md",
+      "bytes": 6598
+    },
+    {
+      "name": "writer",
+      "description": "Writer of player-facing text — dialogue, lore entries, item and ability descriptions, environmental text.",
+      "model": "inherit",
+      "tools": "Read, Glob, Grep, Write, Edit",
+      "file": "writer.md",
+      "bytes": 6636
+    }
+  ]
+}

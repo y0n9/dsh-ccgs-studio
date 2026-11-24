@@ -1,0 +1,63 @@
+{
+  "name": "dsh-ccgs-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Claude Code Game Studios as a DeepSeek Harness bundle: 78 workflow skills, 49 role briefs, the studio corpus, project scaffolding and a state reader.",
+  "license": "MIT",
+  "author": "y0n9",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale/",
+    "docs/",
+    "templates/",
+    "skills/",
+    "studio/",
+    "LICENSE",
+    "CREDITS.md",
+    "CHANGELOG.md",
+    "README.md",
+    "README.en.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-bundle",
+    "dsh-plugin",
+    "game-development",
+    "gamedev",
+    "game-studio",
+    "skills",
+    "agents",
+    "workflow",
+    "project-management"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/y0n9/dsh-ccgs-studio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/y0n9/dsh-ccgs-studio/issues"
+  },
+  "homepage": "https://github.com/y0n9/dsh-ccgs-studio#readme",
+  "scripts": {
+    "test": "node test/bundle.test.mjs",
+    "build": "node scripts/build-from-upstream.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

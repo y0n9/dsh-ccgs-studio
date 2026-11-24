@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: bundle self-test (${{ matrix.os }}, node ${{ matrix.node }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        node: [20, 22]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      # No dependencies: the bundle uses only Node built-ins and the DSH host context.
+      - name: Self-test
+        run: node test/bundle.test.mjs
+
+      - name: Check the shipped payload is complete
+        shell: bash
+        run: |
+          test -f index.js
+          test -f cordis.patch.yml
+          test -f icon.svg
+          test -f locale/en.json
+          test -f locale/zh.json
+          test -f docs/DETAIL.md
+          test -f skills/manifest.json
+          test -f studio/agents/index.json
+          test -f templates/AGENTS.md
